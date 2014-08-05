@@ -1,10 +1,28 @@
 <script>
 var guess;
-var answer = "13.1";
-guess = prompt("How many miles are in a half marathon?");
-if (guess===answer) {
-	alert("nice job!");
-} else {
-alert("please try again");
-}
+var answer = 13.1; // A half-marathon is 13.1 miles
+
+var correct = false; // true when user guesses correctly
+var errorDirection; // was guess low or high?
+
+while (!correct) // do unil we get the right answer
+{
+  // ask the user to guess and conver the anser to a number
+  guess = parseFloat(prompt("How many miles are in a half marathon?"));
+
+  if (guess === answer) // correct guess, done
+  {
+    alert("Nice job!");
+    correct = true;
+  }
+
+  else // Not correct. Let player know and try again
+  {
+    if (answer > guess)
+      errorDirection = "low.";
+    else errorDirection = "high.";
+    alert("Please try again, you were too " + errorDirection);
+  } // end else
+} // end while
+
 </script>
